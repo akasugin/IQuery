@@ -81,13 +81,12 @@ public class AirConditionBot extends BaseBot{
         // 判断NLU解析的意图名称是否匹配 inquiry
         if ("ctl-AC".equals(intentRequest.getIntentName())) {
             // 判断NLU解析解析后是否存在这个槽位
-            System.out.println(getSlot("On-Off"));
-            System.out.print(getSlot("On-Off") == "打开");
+
             if (getSlot("On-Off") == null) {
                 // 询问城市槽位On-Off
                 ask("On-Off");
                 return askStatus();
-            } else if(getSlot("On-Off") == "打开"){
+            } else if("打开".equals(getSlot("On-Off"))){
                 if(getSlot("number") == null){
                     ask("number");
                     return askModel();
@@ -188,7 +187,7 @@ public class AirConditionBot extends BaseBot{
         MessageSender messageSender = new MessageSender();
         String ret = "";
 
-        if(status == "打开"){
+        if("打开".equals(status)){
             String number = getSlot("number");
 
             Model model = new Model();
@@ -200,7 +199,7 @@ public class AirConditionBot extends BaseBot{
 
             ret = "好的，空调将以模式" + model.getNumber() + "打开,请耐心等候";
 
-        } else if (status == "关闭"){
+        } else if ("关闭".equals(status)){
 
             Model model = new Model();
             model.setName("air condition close");
