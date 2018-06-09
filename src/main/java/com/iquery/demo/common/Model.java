@@ -4,13 +4,13 @@ public class Model {
 
     private String name;
 
-    private int number;
+    private String number;
 
     public String getName() {
         return name;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -18,7 +18,7 @@ public class Model {
         this.name = name;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 }

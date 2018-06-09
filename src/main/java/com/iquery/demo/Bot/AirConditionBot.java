@@ -192,7 +192,7 @@ public class AirConditionBot extends BaseBot{
 
             Model model = new Model();
             model.setName("air condition open");
-            model.setNumber(Integer.parseInt(number));
+            model.setNumber(number);
 
 
             messageSender.send(model);
@@ -203,7 +203,7 @@ public class AirConditionBot extends BaseBot{
 
             Model model = new Model();
             model.setName("air condition close");
-            model.setNumber(0);
+            model.setNumber("0");
 
             messageSender.send(model);
 
