@@ -37,8 +37,7 @@ public class KdniaoTrackQueryAPI {
 			JSONArray tracesobj = JSONArray.fromObject(tracksobj.get("Traces"));
 			JSONObject recentTrace = JSONObject.fromObject(tracesobj.get(tracesobj.size()-1));
 			Object recentAcceptStation = recentTrace.get("AcceptStation");
-			System.out.print(recentAcceptStation);
-//			System.out.print(tracesobj);
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();

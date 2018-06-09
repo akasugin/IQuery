@@ -168,7 +168,7 @@ public class MenuQueryBot extends BaseBot{
         }
 
         TextCard textCard = new TextCard(ret);
-        System.out.println(ret);
+
         textCard.setAnchorText("setAnchorText");
         textCard.addCueWord("查询成功");
 

@@ -32,7 +32,7 @@ public class KdApiOrderDistinguish {
 			JSONObject jsStr = JSONObject.fromObject(result);
 			JSONArray shippers = JSONArray.fromObject(jsStr.get("Shippers"));
 			JSONObject shippersobj = JSONObject.fromObject(shippers.get(0));
-			System.out.print(shippersobj.get("ShipperCode"));
+
 //			System.out.print(result);
 			
 		} catch (Exception e) {

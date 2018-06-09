@@ -39,10 +39,8 @@ public class JeheMenuQuery {
             result = net(url, params, "GET");
             JSONObject object = JSONObject.fromObject(result);
             if(object.getInt("error_code")==0){
-//                System.out.println(object.get("result"));
                 rt = object.get("result");
             }else{
-//                System.out.println(object.get("error_code")+":"+object.get("reason"));
                 rt = object.get("error_code")+":"+object.get("reason");
             }
         } catch (Exception e) {

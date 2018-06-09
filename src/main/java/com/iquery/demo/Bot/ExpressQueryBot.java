@@ -189,7 +189,7 @@ public class ExpressQueryBot extends BaseBot{
             letter = getSlot("query_letter");
         //快递单号
         String express_number = letter + number;
-        System.out.println(express_number);
+
         String ret = "您的快递";
 
         //查询单号是否存在和单号所属物流公司
@@ -200,7 +200,7 @@ public class ExpressQueryBot extends BaseBot{
             JSONArray shippers = JSONArray.fromObject(tracesobj.get("Shippers"));
             JSONObject shippersarray = JSONObject.fromObject(shippers.get(0));
             Object shippercode = shippersarray.get("ShipperCode");
-            System.out.println(shippercode);
+
 
             KdniaoTrackQueryAPI tqapi = new KdniaoTrackQueryAPI();
             try {
@@ -209,7 +209,7 @@ public class ExpressQueryBot extends BaseBot{
                 JSONArray traces = JSONArray.fromObject(tracksobj.get("Traces"));
                 JSONObject recentTrace = JSONObject.fromObject(traces.get(traces.size()-1));
                 Object recentAcceptStation = recentTrace.get("AcceptStation");
-                System.out.println(recentAcceptStation);
+
                 ret += recentAcceptStation.toString();
 
             } catch (Exception e) {
@@ -222,7 +222,6 @@ public class ExpressQueryBot extends BaseBot{
         }
 
         TextCard textCard = new TextCard(ret);
-        System.out.println(ret);
         textCard.setAnchorText("setAnchorText");
         textCard.addCueWord("查询成功");
 
