@@ -194,20 +194,17 @@ public class AirConditionBot extends BaseBot{
             model.setName("air condition open");
             model.setNumber(number);
 
-
+            ret = "好的，空调将以模式" + number + "打开,请耐心等候";
             messageSender.send(model);
-
-            ret = "好的，空调将以模式" + model.getNumber() + "打开,请耐心等候";
 
         } else if ("关闭".equals(status)){
 
+            ret = "好的，空调将关闭";
             Model model = new Model();
             model.setName("air condition close");
             model.setNumber("0");
 
             messageSender.send(model);
-
-            ret = "好的，空调将关闭";
         }else{
             ret = "请重新输入控制指令";
         }
