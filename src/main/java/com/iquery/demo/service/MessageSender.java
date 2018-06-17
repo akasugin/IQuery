@@ -5,6 +5,8 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
+import java.util.HashMap;
+
 /**
  * Created with IntelliJ IDEA.
  * User: red
@@ -30,8 +32,9 @@ public class MessageSender {
             //创建一个通道
             Channel channel = connection.createChannel();
             //  声明一个队列
-            channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-//            String message = "Hello RabbitMQ";
+            HashMap args = new HashMap<String, Object>();
+            args.put("x-message-ttl", 30000);
+            channel.queueDeclare(QUEUE_NAME, false, false, false, args);
             //发送消息到队列中
             channel.basicPublish("", QUEUE_NAME, null, controlJson.getBytes("UTF-8"));
             System.out.println("Producer Send +'" + controlJson + "'");
