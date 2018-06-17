@@ -199,11 +199,11 @@ public class AirConditionBot extends BaseBot{
 
         } else if ("关闭".equals(status)){
 
-            ret = "好的，空调将关闭";
             Model model = new Model();
             model.setName("air condition close");
             model.setNumber("0");
 
+            ret = "好的，空调将关闭";
             messageSender.send(model);
         }else{
             ret = "请重新输入控制指令";
